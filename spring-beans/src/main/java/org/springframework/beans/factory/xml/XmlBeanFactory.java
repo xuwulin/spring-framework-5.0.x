@@ -50,6 +50,21 @@ import org.springframework.core.io.Resource;
  * @deprecated as of Spring 3.1 in favor of {@link DefaultListableBeanFactory} and
  * {@link XmlBeanDefinitionReader}
  */
+
+/**
+ * @Deprecated 若某类或某方法加上该注解之后，表示此方法或类不再建议使用，调用时也会出现删除线，
+ * 			   但并不代表不能用，只是说，不推荐使用，因为还有更好的方法可以调用。
+ * @SuppressWarnings 注解是jse提供的注解。作用是屏蔽一些无关紧要的警告。
+ * 					使开发者能看到一些他们真正关心的警告。从而提高开发者的效率
+ * 				serial: 忽略在serializable类中没有声明serialVersionUID变量
+ * 				all: 抑制所有警告
+ *
+ * XmlBeanFactory继承自DefaultListableBeanFactory，
+ * 而DefaultListableBeanFactory是整个bean加载的核心部分，是spring注册及加载bean的默认实现，
+ * 而对于XmlBeanFactory与DefaultListableBeanFactory不同的地方其实是在XmlBeanFactory中使用了自定义的XML
+ * 读取XmlBeanDefinftionReader，实现个性化的BeanDefinitionReader读取
+ *
+ */
 @Deprecated
 @SuppressWarnings({"serial", "all"})
 public class XmlBeanFactory extends DefaultListableBeanFactory {

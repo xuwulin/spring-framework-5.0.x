@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'org.springframework'
+version '5.0.16.BUILD-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile(project(":spring-webmvc")) // 依赖spring-webmvc源码
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+// 创建结构目录
+task "create-dirs" << {
+    sourceSets*.java.srcDirs*.each {
+        it.mkdir()
+    }
+    sourceSets*.resources.srcDirs*.each {
+        it.mkdir()
+    }
+}

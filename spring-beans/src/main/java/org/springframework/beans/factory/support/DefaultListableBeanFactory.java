@@ -111,7 +111,11 @@ import org.springframework.util.StringUtils;
  * @see #getBean
  * @see #resolveDependency
  */
-@SuppressWarnings("serial")
+
+/**
+ * DefaultListableBeanFactory是整个bean加载的核心部分，是spring注册及加载bean的默认实现，
+ */
+@SuppressWarnings("serial") // 忽略在serializable类中没有声明serialVersionUID变量
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory
 		implements ConfigurableListableBeanFactory, BeanDefinitionRegistry, Serializable {
 
