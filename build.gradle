@@ -245,8 +245,8 @@ configure(subprojects - project(":spring-build-src")) { subproject ->
 	}
 
 	artifacts {
-		archives sourcesJar
-		archives javadocJar
+//		archives sourcesJar
+//		archives javadocJar // 注释掉，不要编译javadoc
 	}
 }
 
@@ -286,9 +286,9 @@ configure(rootProject) {
 	}
 
 	artifacts {
-		archives docsZip
-		archives schemaZip
-		archives distZip
+//		archives docsZip // 注释掉，不要编译javadoc
+//		archives schemaZip
+//		archives distZip
 	}
 
 	task wrapper(type: Wrapper) {
