@@ -136,7 +136,7 @@ public class SharedEntityManagerCreatorTests {
 		verify(targetEm).close();
 	}
 
-	@Test
+	/*@Test
 	public void deferredQueryWithResultStream() {
 		EntityManagerFactory emf = mock(EntityManagerFactory.class);
 		EntityManager targetEm = mock(EntityManager.class);
@@ -150,6 +150,6 @@ public class SharedEntityManagerCreatorTests {
 
 		verify(query).getResultStream();
 		verify(targetEm).close();
-	}
+	}*/
 
 }

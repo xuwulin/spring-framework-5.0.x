@@ -55,6 +55,8 @@ import java.lang.annotation.Target;
  * @see Bean
  * @see Configuration
  * @see org.springframework.stereotype.Component
+ *
+ * 懒加载，针对单实例singleton，使用该注解后，在IOC容器启动时不会创建对象，只有在“第一次”使用（获取）bean时才会创建对象并放入到IOC容器中
  */
 @Target({ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)

@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+group 'org.springframework'
+version '5.0.16.BUILD-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // 依赖spring-jdbc源码
+    compile(project(":spring-jdbc"))
+    // 依赖spring-context源码
+    compile(project(":spring-context"))
+    // 依赖spring-aspects（AOP）源码
+    compile(project(":spring-aspects"))
+    // javax.inject 引入后可以使用@Inject注解
+    compile group: 'javax.inject', name: 'javax.inject', version: '1'
+    // c3p0数据源
+    compile group: 'com.mchange', name: 'c3p0', version: '0.9.5.4'
+    // mysql数据库驱动
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.44'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+// 创建结构目录
+task "create-dirs" << {
+    sourceSets*.java.srcDirs*.each {
+        it.mkdir()
+    }
+    sourceSets*.resources.srcDirs*.each {
+        it.mkdir()
+    }
+}

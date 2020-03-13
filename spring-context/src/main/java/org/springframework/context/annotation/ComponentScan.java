@@ -55,7 +55,7 @@ import org.springframework.core.type.filter.TypeFilter;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Documented
-@Repeatable(ComponentScans.class)
+@Repeatable(ComponentScans.class) // 表示这是一个可以重复的注解（即在一个类中可以使用多个@ComponentScan注解），需要jdk1.8以上才支持，jdk1.8以下需要使用@ComponentScans注解实现这个重复注解的功能
 public @interface ComponentScan {
 
 	/**

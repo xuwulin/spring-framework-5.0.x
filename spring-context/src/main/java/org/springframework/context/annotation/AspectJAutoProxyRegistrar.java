@@ -30,6 +30,8 @@ import org.springframework.core.type.AnnotationMetadata;
  * @author Juergen Hoeller
  * @since 3.1
  * @see EnableAspectJAutoProxy
+ *
+ * 实现ImportBeanDefinitionRegistrar接口，重写其方法，可以在该方法中手动给IOC容器中注册bean
  */
 class AspectJAutoProxyRegistrar implements ImportBeanDefinitionRegistrar {
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/cache"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+	<!-- 包扫描，只要标注了@Controller、@Service、@Repository、@Component这四个注解中任何一个的组件，都会被自动扫描加载到IOC容器中 -->
+	<!-- 该标签可以使用注解：@ComponentScan(value = "com.xwl")代替 -->
+	<!-- use-default-filters="false" 表示禁用默认规则（默认规则就是扫描该包下所有加了以上四个注解的组件）,只有禁用了，配置只扫描哪些组件这个功能才会生效 -->
+	<!--<context:component-scan base-package="com.xwl" use-default-filters="false">-->
+		<!-- context:include-filter：配置只扫描哪些组件 -->
+		<!--<context:include-filter type="annotation" expression=""/>-->
+	<!--</context:component-scan>-->
+
+	<!-- 在IOC容器中注册一个bean，id为person -->
+	<!-- bean标签可以使用注解：@Bean("person")代替 -->
+	<!-- scope可以使用注解：@Scope("singleton")代替，默认就是单实例的 -->
+	<bean id="person" class="com.xwl.ioc.bean.Person" scope="singleton">
+		<property name="name" value="贾宝玉"></property>
+		<property name="age" value="13"></property>
+	</bean>
+
+	<!-- 开启基于注解版的切面功能 -->
+	<!--<aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
+
+	<!-- 开启基于注解版的事务功能 -->
+	<!--<tx:annotation-driven/>-->
+</beans>

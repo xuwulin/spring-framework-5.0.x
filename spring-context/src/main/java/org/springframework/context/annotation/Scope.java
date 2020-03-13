@@ -57,6 +57,8 @@ import org.springframework.core.annotation.AliasFor;
  * @since 2.5
  * @see org.springframework.stereotype.Component
  * @see org.springframework.context.annotation.Bean
+ *
+ * 指定Bean的作用域
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

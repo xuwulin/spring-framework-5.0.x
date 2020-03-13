@@ -83,9 +83,9 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 * e.g. {@link Configuration @Configuration} classes
 	 */
 	public AnnotationConfigApplicationContext(Class<?>... annotatedClasses) {
-		this();
-		register(annotatedClasses);
-		refresh();
+		this(); // 调用无参构造器创建对象
+		register(annotatedClasses); // 将我们的配置类注册进来
+		refresh(); // 刷新容器，目的是要把容器中所有的bean创建出来
 	}
 
 	/**
