@@ -51,18 +51,17 @@ public class IOCTestConfigScope {
 	@Test
 	public void testImport() {
 		printBeans(annotationConfigApplicationContext);
-
 	}
 
 	@Test
 	public void testFactoryBean() {
 		// spring的FactoryBean获取的是调用getObject创建的对象
 		Object schoole = annotationConfigApplicationContext.getBean("schooleFactoryBean");
-		System.out.println("schooleFactoryBean的类型为：" + schoole.getClass()); // class com.xwl.bean.School
+		System.out.println("schooleFactoryBean.getObject()返回的类型为：" + schoole.getClass()); // class com.xwl.bean.School
 
 		// 如果要获取SchooleFactoryBean本身，则用需要加 &
 		Object schooleFactoryBean = annotationConfigApplicationContext.getBean("&schooleFactoryBean");
-		System.out.println("schooleFactoryBean的类型为：" + schooleFactoryBean.getClass()); // class com.xwl.bean.SchooleFactoryBean
+		System.out.println("schooleFactoryBean本身的类型为：" + schooleFactoryBean.getClass()); // class com.xwl.bean.SchooleFactoryBean
 	}
 
 	private void printBeans(AnnotationConfigApplicationContext annotationConfigApplicationContext) {

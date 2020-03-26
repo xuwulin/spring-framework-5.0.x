@@ -1,5 +1,6 @@
 package com.xwl.ioc.importBean;
 
+import com.xwl.ioc.bean.Collage;
 import com.xwl.ioc.bean.School;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.RootBeanDefinition;
@@ -21,13 +22,13 @@ public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegi
 	 */
 	@Override
 	public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
-		boolean student = registry.containsBeanDefinition("com.xwl.bean.Student");
-		boolean teacher = registry.containsBeanDefinition("com.xwl.bean.Teacher");
+		boolean student = registry.containsBeanDefinition("com.xwl.ioc.bean.Student");
+		boolean teacher = registry.containsBeanDefinition("com.xwl.ioc.bean.Teacher");
 		if (student && teacher) {
 			// 指定注册bean的定义信息：（Bean的类型，作用域等）
-			RootBeanDefinition rootBeanDefinition = new RootBeanDefinition(School.class);
-			// 给IOC容器中手动注册一个bean，id为friend
-			registry.registerBeanDefinition("school", rootBeanDefinition);
+			RootBeanDefinition rootBeanDefinition = new RootBeanDefinition(Collage.class);
+			// 给IOC容器中手动注册一个bean，id为：collage
+			registry.registerBeanDefinition("collage", rootBeanDefinition);
 		}
 
 	}

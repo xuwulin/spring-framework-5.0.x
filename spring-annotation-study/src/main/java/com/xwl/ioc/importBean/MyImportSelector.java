@@ -16,6 +16,6 @@ public class MyImportSelector implements ImportSelector {
 	 */
 	@Override
 	public String[] selectImports(AnnotationMetadata importingClassMetadata) {
-		return new String[]{"com.xwl.bean.Student", "com.xwl.bean.Teacher"};
+		return new String[]{"com.xwl.ioc.bean.Student", "com.xwl.ioc.bean.Teacher"};
 	}
 }

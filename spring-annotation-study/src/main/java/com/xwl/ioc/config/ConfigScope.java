@@ -34,7 +34,7 @@ public class ConfigScope {
 	 * @return
 	 */
 //	@Scope("singleton") // 指定bean的作用范围，默认是单例的
-	@Lazy // 针对单实例singleton
+	@Lazy // 针对单实例singleton，开启懒加载模式，在IOC启动时不会创建该对象，而是在第一次使用该对象时才加载
 	@Bean("person")
 	public Person person() {
 		System.out.println("bean的作用域默认是单实例，会在IOC容器启动时调用该方法创建对象放入IOC容器中。。。");
@@ -67,9 +67,9 @@ public class ConfigScope {
 	 * 2、@Bean[导入的第三方包里面的组件]
 	 * 3、@Import[快速给容器中导入一个组件]
 	 * 		1)、@Import(要导入到容器中的组件)：容器中就会自动注册这个组件，id默认是组件的全类名
-	 * 		2)、ImportSelector：返回需要导入的组件的全类名数组；
-	 * 		3）、ImportBeanDefinitionRegistrar：手动注册Bean到IOC容器中
-	 * 4、使用spring提供的FactoryBean(工厂Bean)：
+	 * 		2)、ImportSelector：返回需要导入的组件的全类名数组；【详情请看：com.xwl.ioc.importBean.MyImportSelector】
+	 * 		3）、ImportBeanDefinitionRegistrar：手动注册Bean到IOC容器中【详情请看：com.xwl.ioc.importBean.MyImportBeanDefinitionRegistrar】
+	 * 4、使用spring提供的FactoryBean(工厂Bean)：【详情请看：com.xwl.ioc.bean.SchooleFactoryBean，测试详情请看：com.xwl.ioc.IOCTestConfigScope#testFactoryBean()】
 	 * 		1)、默认获取的是调用getObject创建的对象！！！
 	 * 		2)、要获取工厂Bean本身，我们需要给id前面加一个 & 标识
 	 */
