@@ -10,7 +10,7 @@ import org.springframework.core.type.AnnotationMetadata;
  */
 public class MyImportSelector implements ImportSelector {
 	/**
-	 *
+	 * 注意：ImportSelector.selectImports()方法也是实现springboot自动配置的关键！！！
 	 * @param importingClassMetadata 当前标注@Import注解的类中的所有注解信息
 	 * @return 返回值就是要导入到IOC容器中的组件的全类名
 	 */
